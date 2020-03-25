@@ -3,6 +3,7 @@ package cs3500.animator.view;
 //TODO: Implement this entire class
 
 import cs3500.excellence.hw05.ExcellenceOperations;
+import java.io.PrintStream;
 
 /**
  * A SVG view for our animation program. Outputs text in the style of an SVG file for the given
@@ -20,17 +21,12 @@ public class ViewSVG implements ExcellenceView {
   }
 
   @Override
-  public void makeVisible() {
-
-  }
-
-  @Override
   public void refresh() {
 
   }
 
   @Override
-  public void go(Appendable ap) {
+  public void go(PrintStream out) {
 
   }
 }

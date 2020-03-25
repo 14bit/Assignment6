@@ -30,5 +30,7 @@ public class ViewPanel extends JPanel {
 
     Graphics2D g2d = (Graphics2D) g;
 
+    //this is where we draw the frames
+
   }
 }

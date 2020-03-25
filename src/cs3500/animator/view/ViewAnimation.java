@@ -2,6 +2,7 @@ package cs3500.animator.view;
 
 import cs3500.excellence.hw05.ExcellenceModel;
 import cs3500.excellence.hw05.ExcellenceOperations;
+import java.io.PrintStream;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JFrame;
 
@@ -27,17 +28,14 @@ public class ViewAnimation extends JFrame implements ExcellenceView {
   }
 
   @Override
-  public void makeVisible() {
-    this.setVisible(true);
-  }
-
-  @Override
   public void refresh() {
     panel.repaint();
   }
 
   @Override
-  public void go(Appendable ap) {
+  public void go(PrintStream out) {
+    //set this to being visible
+    this.setVisible(true);
     //this is where the clock goes and we do ticks to call refresh()
   }
 }

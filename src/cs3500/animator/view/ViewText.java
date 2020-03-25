@@ -4,6 +4,9 @@ package cs3500.animator.view;
 // the model and put it here for the most part
 
 import cs3500.excellence.hw05.ExcellenceOperations;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
 
 /**
  * A textual view for our animation program. Outputs a text description of the given animation.
@@ -20,17 +23,13 @@ public class ViewText implements ExcellenceView {
   }
 
   @Override
-  public void makeVisible() {
-
-  }
-
-  @Override
   public void refresh() {
 
   }
 
   @Override
-  public void go(Appendable ap) {
-
+  public void go(PrintStream out) {
+    out.append("We are writing directly to a file!\n");
+    System.exit(0);
   }
 }
