@@ -18,6 +18,7 @@ public abstract class Shape {
    * @param name    the name of this shape
    */
   public Shape(String name) {
+    this.name = name;
     this.changes = new ArrayList<>();
   }
 

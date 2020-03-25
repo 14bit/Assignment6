@@ -8,8 +8,6 @@ import java.util.ArrayList;
  */
 public class Ellipse extends Shape {
 
-  public ArrayList<ArrayList<Integer>> changes;
-
   /**
    * Default constructor for Ellipses.
    *
@@ -17,8 +15,6 @@ public class Ellipse extends Shape {
    */
   public Ellipse(String name) {
     super(name);
-    this.name = name;
-    this.changes = super.changes;
   }
 
   @Override

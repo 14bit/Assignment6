@@ -19,37 +19,47 @@ public class ExcellenceModel implements ExcellenceOperations {
   }
 
   @Override
-  public void removeShape(int shapeIndex) {
-    if (shapeIndex <= shapeArrayList.size() - 1) {
-      shapeArrayList.remove(shapeIndex);
-    } else {
-      throw new IllegalArgumentException("There's no shape there!");
+  public void removeShape(String name) {
+
+    for (Shape s : shapeArrayList) {
+      if (s.name == name) {
+        shapeArrayList.remove(s);
+        return;
+      }
     }
+    throw new IllegalArgumentException("There's no shape named that!");
   }
 
   @Override
-  public void addChangeToShape(int shapeIndex, int t1, int x1, int y1, int w1, int h1, int r1,
+  public void addChangeToShape(String name, int t1, int x1, int y1, int w1, int h1, int r1,
       int g1,
       int b1, int t2, int x2, int y2, int w2, int h2, int r2, int g2, int b2) {
-    if (shapeIndex <= shapeArrayList.size() - 1) {
-      shapeArrayList.get(shapeIndex)
-          .addChange(t1, x1, y1, w1, h1, r1, g1, b1, t2, x2, y2, w2, h2, r2, g2, b2);
-    } else {
-      throw new IllegalArgumentException("There's no shape there!");
+    for (Shape s : shapeArrayList) {
+      if (s.name == name) {
+        shapeArrayList.get(shapeArrayList.indexOf(s))
+            .addChange(t1, x1, y1, w1, h1, r1, g1, b1, t2, x2, y2, w2, h2, r2, g2, b2);
+        return;
+      }
     }
+    throw new IllegalArgumentException("There's no shape named that!");
   }
 
   @Override
-  public void removeChangeFromShape(int shapeIndex, boolean front) {
-    if (shapeIndex <= shapeArrayList.size() - 1) {
-      if (front) {
-        shapeArrayList.get(shapeIndex).removeFirstChange();
-      } else {
-        shapeArrayList.get(shapeIndex).removeLastChange();
+  public void removeChangeFromShape(String name, boolean front) {
+
+    for (Shape s : shapeArrayList) {
+      if (s.name == name) {
+        if (front) {
+          shapeArrayList.get(shapeArrayList.indexOf(s))
+              .removeFirstChange();
+        } else {
+          shapeArrayList.get(shapeArrayList.indexOf(s))
+              .removeLastChange();
+        }
+        return;
       }
-    } else {
-      throw new IllegalArgumentException("There's no shape there!");
     }
+    throw new IllegalArgumentException("There's no shape named that!");
   }
 
   @Override
@@ -62,11 +72,18 @@ public class ExcellenceModel implements ExcellenceOperations {
   }
 
   //TODO: All of this class needs to be implemented
+
   /**
    * The implementation of the AnimationBuilder interface. Used to translate inputs from
    * AnimationReader into a form that this model can understand!
    */
   public static final class Builder implements AnimationBuilder<ExcellenceOperations> {
+
+    ExcellenceOperations model;
+
+    Builder() {
+      ExcellenceOperations model = new ExcellenceModel();
+    }
 
     @Override
     public ExcellenceOperations build() {
@@ -80,7 +97,13 @@ public class ExcellenceModel implements ExcellenceOperations {
 
     @Override
     public AnimationBuilder<ExcellenceOperations> declareShape(String name, String type) {
-      return null;
+      switch (type) {
+        case "rectangle":
+          model.addShape(new Rectangle(name));
+        case "ellipse":
+          model.addShape(new Ellipse(name));
+      }
+      return this;
     }
 
     @Override

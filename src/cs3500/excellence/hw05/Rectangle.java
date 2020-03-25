@@ -8,9 +8,6 @@ import java.util.ArrayList;
  */
 public class Rectangle extends Shape {
 
-  public String name;
-  public ArrayList<ArrayList<Integer>> changes;
-
   /**
    * Default constructor for Rectangles.
    *
@@ -18,8 +15,6 @@ public class Rectangle extends Shape {
    */
   public Rectangle(String name) {
     super(name);
-    this.name = name;
-    this.changes = super.changes;
   }
 
   @Override
