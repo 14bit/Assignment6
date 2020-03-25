@@ -1,11 +1,18 @@
 package cs3500.animator.view;
 
 //TODO: Implement this entire class
+
+import cs3500.excellence.hw05.ExcellenceOperations;
+
 /**
  * A SVG view for our animation program. Outputs text in the style of an SVG file for the given
  * animation.
  */
 public class ViewSVG implements ExcellenceView {
+
+  ViewSVG(ExcellenceOperations model) {
+
+  }
 
   @Override
   public void setTickRate(int rate) {
@@ -19,6 +26,11 @@ public class ViewSVG implements ExcellenceView {
 
   @Override
   public void refresh() {
+
+  }
+
+  @Override
+  public void go(Appendable ap) {
 
   }
 }

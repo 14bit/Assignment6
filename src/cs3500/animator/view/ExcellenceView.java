@@ -1,17 +1,20 @@
 package cs3500.animator.view;
 
 //TODO: Design the functionality that all views will share
+
 /**
- * The  for our views of the Excellence Animator. All three views implement this interface
- * to ensure they share functionality.
+ * The  for our views of the Excellence Animator. All three views implement this interface to ensure
+ * they share functionality.
  */
 public interface ExcellenceView {
 
+  //All implementations of this need a constructor that takes an ExcellenceOperations!
+
   /**
-   * Sets the tickRate for this animation. If this isn't called, the default tickRate remains
-   * at one tick per second.
+   * Sets the tickRate for this animation. If this isn't called, the default tickRate remains at one
+   * tick per second.
    *
-   * @param rate   The new tickRate we are setting for this animation
+   * @param rate The new tickRate we are setting for this animation
    * @throws IllegalArgumentException if you pass it zero or a negative
    */
   void setTickRate(int rate);
@@ -23,10 +26,16 @@ public interface ExcellenceView {
   void makeVisible();
 
   /**
-   * Refresh this view to show any changes.
+   * Refresh this view to show any changes. Will be useful later, not sure if needed now.
    */
   void refresh();
 
-  //TODO: There's more that this needs to do, it needs all functionality for all views, then
-  // in those views we just don't use the parts that don't apply.
+  /**
+   * Set this view into motion. Does different things for each view. For example, outputs the
+   * results of the text-based views, or shows the animation for the animation view. Takes an
+   * Appendable, which is passed all the way in from the command line.
+   *
+   * @param ap The appendable we're outputting to
+   */
+  void go(Appendable ap);
 }
