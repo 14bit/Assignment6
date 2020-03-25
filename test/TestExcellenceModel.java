@@ -40,7 +40,7 @@ public class TestExcellenceModel {
     assertEquals("Rectangle r1\n"
         + "No listed changes\n"
         + "Rectangle r2\n"
-        + "No listed changes", m1.displayLog());
+        + "No listed changes\n", m1.displayLog());
   }
 
   //Tests adding changes to shapes in a model
@@ -48,18 +48,18 @@ public class TestExcellenceModel {
   public void testAddChangesToShape() {
     m1.addShape(new Rectangle("r1"));
     m1.addShape(new Ellipse("e1"));
-    m1.addShape(new Rectangle("r1"));
+    m1.addShape(new Rectangle("r2"));
     m1.addChangeToShape(1, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10);
     m1.addChangeToShape(1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 5, 5, 5, 5, 5, 5, 5);
     m1.addChangeToShape(1, 11, 10, 10, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 15, 15, 15);
     m1.addChangeToShape(2, 1, 1, 1, 1, 1, 1, 1, 1, 4, 5, 5, 5, 5, 5, 5, 5);
-    assertEquals("Rectangle 1188753216\n"
+    assertEquals("Rectangle r1\n"
         + "No listed changes\n"
-        + "Ellipse 863125040\n"
+        + "Ellipse e1\n"
         + "Change:[1, 1, 1, 1, 1, 1, 1, 1, 4, 5, 5, 5, 5, 5, 5, 5]\n"
         + "Change:[5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10]\n"
         + "Change:[11, 10, 10, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 15, 15, 15]\n"
-        + "Rectangle 1946403944\n"
+        + "Rectangle r2\n"
         + "Change:[1, 1, 1, 1, 1, 1, 1, 1, 4, 5, 5, 5, 5, 5, 5, 5]\n", m1.displayLog());
   }
 
@@ -72,20 +72,20 @@ public class TestExcellenceModel {
     m1.addChangeToShape(0, 1, 1, 1, 1, 1, 1, 1, 1, 4, 5, 5, 5, 5, 5, 5, 5);
     m1.addChangeToShape(0, 11, 10, 10, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 15, 15, 15);
     //check that everything was added right
-    assertEquals("Rectangle 2070529722\n"
+    assertEquals("Rectangle r1\n"
             + "Change:[1, 1, 1, 1, 1, 1, 1, 1, 4, 5, 5, 5, 5, 5, 5, 5]\n"
             + "Change:[5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10]\n"
             + "Change:[11, 10, 10, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 15, 15, 15]\n",
         m1.displayLog());
     //remove the first change
     m1.removeChangeFromShape(0, true);
-    assertEquals("Rectangle 2070529722\n"
+    assertEquals("Rectangle r1\n"
             + "Change:[5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10]\n"
             + "Change:[11, 10, 10, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 15, 15, 15]\n",
         m1.displayLog());
     //remove the last change
     m1.removeChangeFromShape(0, false);
-    assertEquals("Rectangle 2070529722\n"
+    assertEquals("Rectangle r1\n"
         + "Change:[5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10]\n", m1.displayLog());
   }
 

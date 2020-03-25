@@ -20,7 +20,7 @@ public class ExcellenceModel implements ExcellenceOperations {
 
   @Override
   public void removeShape(int shapeIndex) {
-    if (shapeIndex > shapeArrayList.size() - 1) {
+    if (shapeIndex <= shapeArrayList.size() - 1) {
       shapeArrayList.remove(shapeIndex);
     } else {
       throw new IllegalArgumentException("There's no shape there!");
@@ -31,7 +31,7 @@ public class ExcellenceModel implements ExcellenceOperations {
   public void addChangeToShape(int shapeIndex, int t1, int x1, int y1, int w1, int h1, int r1,
       int g1,
       int b1, int t2, int x2, int y2, int w2, int h2, int r2, int g2, int b2) {
-    if (shapeIndex > shapeArrayList.size() - 1) {
+    if (shapeIndex <= shapeArrayList.size() - 1) {
       shapeArrayList.get(shapeIndex)
           .addChange(t1, x1, y1, w1, h1, r1, g1, b1, t2, x2, y2, w2, h2, r2, g2, b2);
     } else {
@@ -41,7 +41,7 @@ public class ExcellenceModel implements ExcellenceOperations {
 
   @Override
   public void removeChangeFromShape(int shapeIndex, boolean front) {
-    if (shapeIndex > shapeArrayList.size() - 1) {
+    if (shapeIndex <= shapeArrayList.size() - 1) {
       if (front) {
         shapeArrayList.get(shapeIndex).removeFirstChange();
       } else {
