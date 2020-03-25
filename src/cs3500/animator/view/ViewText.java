@@ -8,4 +8,18 @@ package cs3500.animator.view;
  */
 public class ViewText implements ExcellenceView {
 
+  @Override
+  public void setTickRate(int rate) {
+
+  }
+
+  @Override
+  public void makeVisible() {
+
+  }
+
+  @Override
+  public void refresh() {
+
+  }
 }

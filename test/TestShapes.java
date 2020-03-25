@@ -10,12 +10,12 @@ import org.junit.Test;
  */
 public class TestShapes {
 
-  Shape rect1 = new Rectangle();
+  Shape rect1 = new Rectangle("r1");
 
   //test that a rectangle can be made and have an empty changes list returned
   @Test
   public void testCreateRectangle() {
-    assertEquals("Rectangle 1227074340\n"
+    assertEquals("Rectangle r1\n"
         + "No listed changes\n", rect1.getChanges());
   }
 
@@ -28,7 +28,7 @@ public class TestShapes {
     rect1.addChange(1, 1, 1, 1, 1, 1, 1, 1, 4, 5, 5, 5, 5, 5, 5, 5);
     //add to the back
     rect1.addChange(11, 10, 10, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 15, 15, 15);
-    assertEquals("Rectangle 1227074340\n"
+    assertEquals("Rectangle r1\n"
             + "Change:[1, 1, 1, 1, 1, 1, 1, 1, 4, 5, 5, 5, 5, 5, 5, 5]\n"
             + "Change:[5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10]\n"
             + "Change:[11, 10, 10, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 15, 15, 15]\n",

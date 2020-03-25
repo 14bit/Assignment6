@@ -9,13 +9,16 @@ import java.util.Arrays;
  */
 public abstract class Shape {
 
+  public String name;
   public ArrayList<ArrayList<Integer>> changes;
 
   /**
-   * Default constructor for Shapes. Takes no arguments.
+   * Default constructor for Shapes. Takes in a name.
+   *
+   * @param name    the name of this shape
    */
-  Shape() {
-    this.changes = new ArrayList<ArrayList<Integer>>();
+  public Shape(String name) {
+    this.changes = new ArrayList<>();
   }
 
   /**
@@ -59,7 +62,7 @@ public abstract class Shape {
         checkSameValues(x2, y2, w2, h2, r2, g2, b2, friend.get(1), friend.get(2), friend.get(3),
             friend.get(4), friend.get(5), friend.get(6), friend.get(7));
         //then add the change to the start of the list if it works
-        changes.add(0, new ArrayList<Integer>(Arrays.asList(t1, x1, y1, w1, h1, r1, g1, b1, t2,
+        changes.add(0, new ArrayList<>(Arrays.asList(t1, x1, y1, w1, h1, r1, g1, b1, t2,
             x2, y2, w2, h2, r2, g2, b2)));
         return;
       } else {
@@ -72,7 +75,7 @@ public abstract class Shape {
           checkSameValues(x1, y1, w1, h1, r1, g1, b1, friend.get(9), friend.get(10), friend.get(11),
               friend.get(12), friend.get(13), friend.get(14), friend.get(15));
           //then add the change if it works
-          changes.add(new ArrayList<Integer>(Arrays.asList(t1, x1, y1, w1, h1, r1, g1, b1, t2,
+          changes.add(new ArrayList<>(Arrays.asList(t1, x1, y1, w1, h1, r1, g1, b1, t2,
               x2, y2, w2, h2, r2, g2, b2)));
           return;
         } else {
@@ -84,7 +87,7 @@ public abstract class Shape {
       }
     } else {
       //if there's nothing else to check against, just add it.
-      changes.add(new ArrayList<Integer>(Arrays.asList(t1, x1, y1, w1, h1, r1, g1, b1, t2,
+      changes.add(new ArrayList<>(Arrays.asList(t1, x1, y1, w1, h1, r1, g1, b1, t2,
           x2, y2, w2, h2, r2, g2, b2)));
     }
   }

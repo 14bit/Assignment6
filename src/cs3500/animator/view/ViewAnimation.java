@@ -10,4 +10,18 @@ import javax.swing.JFrame;
  */
 public class ViewAnimation extends JFrame implements ExcellenceView {
 
+  @Override
+  public void setTickRate(int rate) {
+
+  }
+
+  @Override
+  public void makeVisible() {
+
+  }
+
+  @Override
+  public void refresh() {
+
+  }
 }

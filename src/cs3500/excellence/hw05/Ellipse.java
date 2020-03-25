@@ -11,16 +11,20 @@ public class Ellipse extends Shape {
   public ArrayList<ArrayList<Integer>> changes;
 
   /**
-   * Default constructor for Ellipses. Takes no arguments.
+   * Default constructor for Ellipses.
+   *
+   * @param name      the name of this shape
    */
-  public Ellipse() {
+  public Ellipse(String name) {
+    super(name);
+    this.name = name;
     this.changes = super.changes;
   }
 
   @Override
   public String getChanges() {
     StringBuilder output = new StringBuilder();
-    output.append("Ellipse " + this.hashCode() + "\n");
+    output.append("Ellipse " + name + "\n");
     if (changes.size() != 0) {
       for (ArrayList<Integer> i : changes) {
         output.append("Change:" + i.toString() + "\n");

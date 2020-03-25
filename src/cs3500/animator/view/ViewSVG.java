@@ -7,4 +7,18 @@ package cs3500.animator.view;
  */
 public class ViewSVG implements ExcellenceView {
 
+  @Override
+  public void setTickRate(int rate) {
+
+  }
+
+  @Override
+  public void makeVisible() {
+
+  }
+
+  @Override
+  public void refresh() {
+
+  }
 }

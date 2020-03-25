@@ -8,19 +8,24 @@ import java.util.ArrayList;
  */
 public class Rectangle extends Shape {
 
+  public String name;
   public ArrayList<ArrayList<Integer>> changes;
 
   /**
-   * Default constructor for Rectangles. Takes no arguments.
+   * Default constructor for Rectangles.
+   *
+   * @param name    the name of this shape
    */
-  public Rectangle() {
+  public Rectangle(String name) {
+    super(name);
+    this.name = name;
     this.changes = super.changes;
   }
 
   @Override
   public String getChanges() {
     StringBuilder output = new StringBuilder();
-    output.append("Rectangle " + this.hashCode() + "\n");
+    output.append("Rectangle " + name + "\n");
     if (changes.size() != 0) {
       for (ArrayList<Integer> i: changes) {
         output.append("Change:" + i.toString() + "\n");
