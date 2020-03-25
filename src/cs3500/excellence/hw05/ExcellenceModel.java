@@ -5,13 +5,26 @@ import cs3500.animator.util.AnimationReader;
 import java.util.ArrayList;
 
 /**
- * A model that represents an animation created with our Excellence animator.
+ * A model that represents an animation created with our Excellence animator. Stores information
+ * about shapes, which each hold their own list of changes. Also stores information about the
+ * animation's canvas, such as height, width, and how the X and Y values on the canvas relate
+ * to that.
  */
 public class ExcellenceModel implements ExcellenceOperations {
 
   ArrayList<Shape> shapeArrayList = new ArrayList<>();
+  int x = 0;
+  int y = 0;
+  int width = 100;
+  int height = 100;
 
-  //TODO: Set up canvas size and things, we forgot to do that last time
+  @Override
+  public void setCanvas(int x, int y, int width, int height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+  }
 
   @Override
   public void addShape(Shape s) {
@@ -71,28 +84,25 @@ public class ExcellenceModel implements ExcellenceOperations {
     return output.toString();
   }
 
-  //TODO: All of this class needs to be implemented
-
   /**
    * The implementation of the AnimationBuilder interface. Used to translate inputs from
-   * AnimationReader into a form that this model can understand!
+   * AnimationReader into a form that our model can understand! It's nested here because that's
+   * how it is in the assignment, though we're not entirely sure why considering it doesn't seem
+   * to have any apparent advantages for our implementation.
    */
   public static final class Builder implements AnimationBuilder<ExcellenceOperations> {
 
-    ExcellenceOperations model;
-
-    Builder() {
-      ExcellenceOperations model = new ExcellenceModel();
-    }
+    ExcellenceOperations model = new ExcellenceModel();
 
     @Override
     public ExcellenceOperations build() {
-      return null;
+      return model;
     }
 
     @Override
     public AnimationBuilder<ExcellenceOperations> setBounds(int x, int y, int width, int height) {
-      return null;
+      model.setCanvas(x, y, width, height);
+      return this;
     }
 
     @Override
@@ -110,15 +120,16 @@ public class ExcellenceModel implements ExcellenceOperations {
     public AnimationBuilder<ExcellenceOperations> addMotion(String name, int t1, int x1, int y1,
         int w1, int h1, int r1, int g1, int b1, int t2, int x2, int y2, int w2, int h2, int r2,
         int g2, int b2) {
-      return null;
+      model.addChangeToShape(name, t1, x1, y1, w1, h1, r1, g1, b1, t2, x2, y2, w2, h2, r2, g2, b2);
+      return this;
     }
 
+    //This method is unused at the moment, and is not necessary for Assignment 6
     @Override
     public AnimationBuilder<ExcellenceOperations> addKeyframe(String name, int t, int x, int y,
         int w, int h, int r, int g, int b) {
       return null;
     }
-    // FILL IN HERE
   }
 
 }

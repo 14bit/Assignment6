@@ -7,6 +7,18 @@ package cs3500.excellence.hw05;
 public interface ExcellenceOperations {
 
   /**
+   * Sets up the canvas for this animation. The given x and y values represent the values of the
+   * upper-left corner of the screen, and the width and height are used to calculate where the
+   * lower-right corner will be.
+   *
+   * @param x       The value that will represent the left boundary of the animation
+   * @param y       The value that will represent the top boundary of the animation
+   * @param width   The value that will represent the width of the animation
+   * @param height  The value that will represent the height of the view
+   */
+  void setCanvas(int x, int y, int width, int height);
+
+  /**
    * Adds the given Shape to the animation.
    *
    * @param s Shape to be added to the animation
