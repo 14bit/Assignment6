@@ -38,9 +38,9 @@ public class ViewSVG implements ExcellenceView {
     //for every shape
     for (Shape s : model.returnShapeList()) {
       if (s instanceof Rectangle) {
-        out.append("<rect id=\"" + s.name + "\" x=\"" + s.x1 + "\" y=\"" + s.y1 + "\" width=\"" + s.w1 + "\" height=\"" + s.h1 + "\" fill=\"rgb(" + s.r1 + "." + s.g1 + "." + s.b1 + ")\" visibility=\"visible\" >" + \n");
+        out.append("<rect id=\"" + s.name + "\" x=\"" + s.x1 + "\" y=\"" + s.y1 + "\" width=\"" + s.w1 + "\" height=\"" + s.h1 + "\" fill=\"rgb(" + s.r1 + "." + s.g1 + "." + s.b1 + ")\" visibility=\"visible\" >" + "\n");
       } else if (s instanceof Ellipse) {
-        out.append("<ellipse id=\"" + s.name + "\" cx=\"" + s.x1 + "\" cy=\"" + s.y1 + "\" rx=\"" + s.w1 + "\" ry=\"" + s.h1 + "\" fill=\"rgb(" + s.r1 + "." + s.g1 + "." + s.b1 + ")\" visibility=\"visible\" >" + \n");
+        out.append("<ellipse id=\"" + s.name + "\" cx=\"" + s.x1 + "\" cy=\"" + s.y1 + "\" rx=\"" + s.w1 + "\" ry=\"" + s.h1 + "\" fill=\"rgb(" + s.r1 + "." + s.g1 + "." + s.b1 + ")\" visibility=\"visible\" >" + "\n");
       }
       //if there are movements
       if (s.changes.size() > 0) {
