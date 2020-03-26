@@ -59,8 +59,11 @@ public class ViewAnimation extends JFrame implements ExcellenceView {
   @Override
   public void go(PrintStream out) {
 
-    //TODO: JavaDoc
-    //set up the ActionListener that fires every tick
+    /**
+     * The ActionListener for the timer. Listens for each tick of the clock, and each time that
+     * happens, refreshes the view and counts the tick upwards by one. It's here inside of go()
+     * since it isn't used in the other views.
+     */
     ActionListener onTick = new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
