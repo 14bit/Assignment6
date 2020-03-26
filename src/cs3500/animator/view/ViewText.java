@@ -30,7 +30,7 @@ public class ViewText implements ExcellenceView {
   @Override
   public void go(PrintStream out) {
     out.append("We are writing directly to a file!\n");
-    getChanges();
+    //getChanges();
     System.exit(0);
   }
 }

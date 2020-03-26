@@ -2,7 +2,9 @@ package cs3500.animator.view;
 
 //TODO: Implement this entire class
 
+import cs3500.excellence.hw05.ExcellenceModel;
 import cs3500.excellence.hw05.ExcellenceOperations;
+import cs3500.excellence.hw05.Shape;
 import java.io.PrintStream;
 
 /**
@@ -11,8 +13,10 @@ import java.io.PrintStream;
  */
 public class ViewSVG implements ExcellenceView {
 
-  ViewSVG(ExcellenceOperations model) {
+  private final ExcellenceOperations model;
 
+  ViewSVG(ExcellenceOperations model) {
+    this.model = model;
   }
 
   @Override
@@ -28,5 +32,26 @@ public class ViewSVG implements ExcellenceView {
   @Override
   public void go(PrintStream out) {
 
+    //for every shape
+    for (Shape s : model.returnShapeList()) {
+      //if there are movements
+      if (s.changes.size() > 0) {
+        //for each change in the shape
+        for (int i = 0; i < s.changes.size(); i++) {
+          //write that there's a motion belonging to this shape...
+          out.append("motion " + s.name);
+          //...then write each number...
+          for (int j : s.changes.get(i)) {
+            out.append(" " + j);
+          }
+          //...and then go to a new line when done
+          out.append("\n");
+        }
+      }
+    }
+
+
   }
+
+
 }

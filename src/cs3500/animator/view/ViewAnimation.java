@@ -3,8 +3,6 @@ package cs3500.animator.view;
 import cs3500.excellence.hw05.ExcellenceOperations;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.PrintStream;
 import javax.swing.JFrame;
 import javax.swing.Timer;
