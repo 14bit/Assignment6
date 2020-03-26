@@ -57,5 +57,6 @@ public class ViewSVG implements ExcellenceView {
         }
       }
     }
+    System.exit(0);
   }
 }
