@@ -10,14 +10,21 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
-//TODO: JavaDoc
+/**
+ * The actual panel that handles rendering of animations. All the calculations for rendering shapes
+ * on each tick happen here, as well as the actual drawing of the shapes.
+ */
 public class ViewPanel extends JPanel {
 
   private ExcellenceOperations model;
   int tick;
   int[] canvasInfo;
 
-  //TODO: JavaDoc for constructor
+  /**
+   * Constructor for this ViewPanel. Takes in a model to be rendered.
+   *
+   * @param model the model we are going to be rendering
+   */
   public ViewPanel(ExcellenceOperations model) {
     super();
     this.setBackground(Color.WHITE);
@@ -26,7 +33,11 @@ public class ViewPanel extends JPanel {
     canvasInfo = model.getCanvasInfo();
   }
 
-  //TODO: JavaDoc
+  /**
+   * Setter for the current tick to render. Gets updated every clock tick from the View.
+   *
+   * @param tick what tick to render
+   */
   public void setTick(int tick) {
     this.tick = tick;
   }
@@ -97,11 +108,11 @@ public class ViewPanel extends JPanel {
    * Handles tweening of values for smooth animations. Used to calculate size, position, and color
    * between major frames.
    *
-   * @param currentTick   The current tick to render
-   * @param startTick     The starting tick of this thing
-   * @param valueA        The starting value of this thing
-   * @param endTick       The ending tick of this thing
-   * @param valueB        The ending value of this thing
+   * @param currentTick The current tick to render
+   * @param startTick   The starting tick of this thing
+   * @param valueA      The starting value of this thing
+   * @param endTick     The ending tick of this thing
+   * @param valueB      The ending value of this thing
    * @return the value that this should be at the given tick
    */
   private int tweener(int currentTick, int startTick, int valueA, int endTick, int valueB) {

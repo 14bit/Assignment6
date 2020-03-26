@@ -11,7 +11,7 @@ public class Rectangle extends Shape {
   /**
    * Default constructor for Rectangles.
    *
-   * @param name    the name of this shape
+   * @param name the name of this shape
    */
   public Rectangle(String name) {
     super(name);
@@ -22,7 +22,7 @@ public class Rectangle extends Shape {
     StringBuilder output = new StringBuilder();
     output.append("Rectangle " + name + "\n");
     if (changes.size() != 0) {
-      for (ArrayList<Integer> i: changes) {
+      for (ArrayList<Integer> i : changes) {
         output.append("Change:" + i.toString() + "\n");
       }
     } else {

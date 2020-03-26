@@ -9,8 +9,6 @@ import java.io.PrintStream;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
-//TODO: Implement this entire class
-
 /**
  * A animated view for our animation program. Displays a fully animated version of the given
  * animation.
@@ -22,7 +20,12 @@ public class ViewAnimation extends JFrame implements ExcellenceView {
   int tick;
   int[] canvasInfo;
 
-  //TODO: JavaDoc
+  /**
+   * The constructor for the visual view of the animation program. Takes in a model that it needs to
+   * display, and sets up the panel and starts and handles the clock that refreshes the panel.
+   *
+   * @param model the model that we are rendering
+   */
   ViewAnimation(ExcellenceOperations model) {
     this.tickRate = 1;
     this.tick = 0;
@@ -59,21 +62,14 @@ public class ViewAnimation extends JFrame implements ExcellenceView {
   @Override
   public void go(PrintStream out) {
 
-    /**
-     * The ActionListener for the timer. Listens for each tick of the clock, and each time that
-     * happens, refreshes the view and counts the tick upwards by one. It's here inside of go()
-     * since it isn't used in the other views.
-     */
-    ActionListener onTick = new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        refresh();
-        tick++;
-      }
-    };
-
     //Set up the clock that ticks
-    Timer timer = new Timer(1000 / tickRate, onTick);
+    //There's a lambda expression that acts as the ActionListener for the timer. It listens for each
+    //tick of the clock, and each time that happens, refreshes the view and counts the tick upwards
+    //by one.
+    Timer timer = new Timer(1000 / tickRate, e -> {
+      refresh();
+      tick++;
+    });
 
     //set this view to being visible
     this.setVisible(true);

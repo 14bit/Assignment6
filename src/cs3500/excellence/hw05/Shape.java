@@ -15,7 +15,7 @@ public abstract class Shape {
   /**
    * Default constructor for Shapes. Takes in a name.
    *
-   * @param name    the name of this shape
+   * @param name the name of this shape
    */
   public Shape(String name) {
     this.name = name;
@@ -65,7 +65,6 @@ public abstract class Shape {
         //then add the change to the start of the list if it works
         changes.add(0, new ArrayList<>(Arrays.asList(t1, x1, y1, w1, h1, r1, g1, b1, t2,
             x2, y2, w2, h2, r2, g2, b2)));
-        return;
       } else {
         //otherwise, check if we need to put this at the end of the list of changes
         //Check if the start time for this change is the same as the end
@@ -78,7 +77,6 @@ public abstract class Shape {
           //then add the change if it works
           changes.add(new ArrayList<>(Arrays.asList(t1, x1, y1, w1, h1, r1, g1, b1, t2,
               x2, y2, w2, h2, r2, g2, b2)));
-          return;
         } else {
           //Throw a time error, since something timeline-wise hasn't lined up
           throw new IllegalArgumentException(

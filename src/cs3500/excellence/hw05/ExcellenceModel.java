@@ -1,15 +1,13 @@
 package cs3500.excellence.hw05;
 
 import cs3500.animator.util.AnimationBuilder;
-import cs3500.animator.util.AnimationReader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
  * A model that represents an animation created with our Excellence animator. Stores information
  * about shapes, which each hold their own list of changes. Also stores information about the
- * animation's canvas, such as height, width, and how the X and Y values on the canvas relate
- * to that.
+ * animation's canvas, such as height, width, and how the X and Y values on the canvas relate to
+ * that.
  */
 public class ExcellenceModel implements ExcellenceOperations {
 
@@ -97,9 +95,9 @@ public class ExcellenceModel implements ExcellenceOperations {
 
   /**
    * The implementation of the AnimationBuilder interface. Used to translate inputs from
-   * AnimationReader into a form that our model can understand! It's nested here because that's
-   * how it is in the assignment, though we're not entirely sure why considering it doesn't seem
-   * to have any apparent advantages for our implementation.
+   * AnimationReader into a form that our model can understand! It's nested here because that's how
+   * it is in the assignment, though we're not entirely sure why considering it doesn't seem to have
+   * any apparent advantages for our implementation.
    */
   public static final class Builder implements AnimationBuilder<ExcellenceOperations> {
 

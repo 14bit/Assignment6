@@ -1,8 +1,5 @@
 package cs3500.animator.view;
 
-//TODO: Design the functionality that all views will share
-
-import java.io.IOException;
 import java.io.PrintStream;
 
 /**
@@ -32,7 +29,7 @@ public interface ExcellenceView {
    * results of the text-based views, or shows the animation for the animation view. Takes an
    * PrintStream, which is passed all the way in from the command line.
    *
-   * @param out   The PrintStream we're outputting to
+   * @param out The PrintStream we're outputting to
    */
   void go(PrintStream out);
 }

@@ -11,7 +11,7 @@ public class Ellipse extends Shape {
   /**
    * Default constructor for Ellipses.
    *
-   * @param name      the name of this shape
+   * @param name the name of this shape
    */
   public Ellipse(String name) {
     super(name);

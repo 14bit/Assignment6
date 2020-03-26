@@ -14,7 +14,10 @@ import java.io.PrintStream;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-//TODO: Implement this entire class
+/**
+ * Our main class for running the Animator. Takes command line arguments: -in (filepath) (required)
+ * -out (filepath) -view (text, visual, svg)  (required) -speed (integer)
+ */
 public class Excellence {
 
   private static File input;
@@ -22,7 +25,12 @@ public class Excellence {
   private static String view;
   private static int speed = 1;
 
-  //TODO: JavaDoc
+  /**
+   * Our main method for running the Animator. Takes command line arguments: -in (filepath)
+   * (required) -out (filepath) -view (text, visual, svg)  (required) -speed (integer)
+   *
+   * @param args string of arguments, detailed above
+   */
   public static void main(String[] args) throws IOException {
 
     //parse the command line arguments
@@ -95,6 +103,7 @@ public class Excellence {
     frame.pack();
     frame.setVisible(true);
 
+    //Show the error, then exit
     JOptionPane.showMessageDialog(frame, message, title, JOptionPane.ERROR_MESSAGE);
     System.exit(0);
   }
