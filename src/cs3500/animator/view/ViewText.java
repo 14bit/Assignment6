@@ -4,6 +4,9 @@ package cs3500.animator.view;
 // the model and put it here for the most part
 
 import cs3500.excellence.hw05.ExcellenceOperations;
+import cs3500.excellence.hw05.Shape;
+import cs3500.excellence.hw05.Ellipse;
+import cs3500.excellence.hw05.Rectangle;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -14,22 +17,20 @@ import java.io.PrintStream;
 public class ViewText implements ExcellenceView {
 
   ViewText(ExcellenceOperations model) {
-
   }
 
   @Override
   public void setTickRate(int rate) {
-
   }
 
   @Override
   public void refresh() {
-
   }
 
   @Override
   public void go(PrintStream out) {
     out.append("We are writing directly to a file!\n");
+    getChanges();
     System.exit(0);
   }
 }
