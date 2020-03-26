@@ -57,5 +57,3 @@ public class ViewText implements ExcellenceView {
     System.exit(0);
   }
 }
-  }
-}
