@@ -2,6 +2,7 @@ package cs3500.excellence.hw05;
 
 import cs3500.animator.util.AnimationBuilder;
 import cs3500.animator.util.AnimationReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -27,6 +28,11 @@ public class ExcellenceModel implements ExcellenceOperations {
   }
 
   @Override
+  public int[] getCanvasInfo() {
+    return new int[]{x, y, width, height};
+  }
+
+  @Override
   public void addShape(Shape s) {
     shapeArrayList.add(s);
   }
@@ -35,7 +41,7 @@ public class ExcellenceModel implements ExcellenceOperations {
   public void removeShape(String name) {
 
     for (Shape s : shapeArrayList) {
-      if (s.name == name) {
+      if (s.name.equals(name)) {
         shapeArrayList.remove(s);
         return;
       }
@@ -48,7 +54,7 @@ public class ExcellenceModel implements ExcellenceOperations {
       int g1,
       int b1, int t2, int x2, int y2, int w2, int h2, int r2, int g2, int b2) {
     for (Shape s : shapeArrayList) {
-      if (s.name == name) {
+      if (s.name.equals(name)) {
         shapeArrayList.get(shapeArrayList.indexOf(s))
             .addChange(t1, x1, y1, w1, h1, r1, g1, b1, t2, x2, y2, w2, h2, r2, g2, b2);
         return;
@@ -61,7 +67,7 @@ public class ExcellenceModel implements ExcellenceOperations {
   public void removeChangeFromShape(String name, boolean front) {
 
     for (Shape s : shapeArrayList) {
-      if (s.name == name) {
+      if (s.name.equals(name)) {
         if (front) {
           shapeArrayList.get(shapeArrayList.indexOf(s))
               .removeFirstChange();
@@ -82,6 +88,11 @@ public class ExcellenceModel implements ExcellenceOperations {
       output.append(s.getChanges());
     }
     return output.toString();
+  }
+
+  @Override
+  public ArrayList<Shape> returnShapeList() {
+    return new ArrayList<>(shapeArrayList);
   }
 
   /**

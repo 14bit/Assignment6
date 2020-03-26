@@ -56,8 +56,8 @@ public abstract class Shape {
     checkMoveIsLogical(t1, t2, w2, h2, r2, g2, b2);
     //if there's existing changes logged, check to make sure it fits in with them
     if (changes.size() > 0) {
-      //is the end time of the proposed change one less tick than the first change in the list?
-      if (t2 == changes.get(0).get(0) - 1) {
+      //is the end time of the proposed change the same as the first change in the list?
+      if (t2 == changes.get(0).get(0)) {
         //if so, we're putting it at the front, so check that values line up
         ArrayList<Integer> friend = changes.get(0);
         checkSameValues(x2, y2, w2, h2, r2, g2, b2, friend.get(1), friend.get(2), friend.get(3),
@@ -68,9 +68,9 @@ public abstract class Shape {
         return;
       } else {
         //otherwise, check if we need to put this at the end of the list of changes
-        //Check if the start time for this change is one greater than the end
+        //Check if the start time for this change is the same as the end
         // time of the last change
-        if (t1 == changes.get(changes.size() - 1).get(8) + 1) {
+        if (t1 == changes.get(changes.size() - 1).get(8)) {
           //if so, we're putting it at the back, so check that values line up
           ArrayList<Integer> friend = changes.get(changes.size() - 1);
           checkSameValues(x1, y1, w1, h1, r1, g1, b1, friend.get(9), friend.get(10), friend.get(11),

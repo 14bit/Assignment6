@@ -1,3 +1,4 @@
+------------------
 Changes from last assignment:
 
 - Added a name field to all shapes, since the AnimationBuilder expects shapes to be named.
@@ -9,6 +10,12 @@ we also needed to change how we constructed shapes to avoid errors.
 
 - Added a setCanvas method to the model interface and model that sets up the canvas.
 
+- Added a returnShapeList() method to the model interface and model so that the views can get access
+to a copy of the shapeArrayList that the model stores in order to display its contents.
+
+- Modified Shapes to check for time properly, as they were making sure time in movements didn't
+overlap at all, rather than making sure movements had shared start and end points.
+------------------
 How our views work:
 
 TODO: this
