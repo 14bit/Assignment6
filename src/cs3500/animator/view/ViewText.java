@@ -35,22 +35,22 @@ public class ViewText implements ExcellenceView {
    
     for (Shape s : model.returnShapeList()) {
       if (s instanceof Rectangle) {
-        textString.append("shape" + s.name + "rectangle" + "\n");
+        out.append("shape" + s.name + "rectangle" + "\n");
       } else if (s instanceof Ellipse) {
-        textString.append("shape" + s.name + "ellipse" + "\n");
+        out.append("shape" + s.name + "ellipse" + "\n");
       }
       //if there are movements
       if (s.changes.size() > 0) {
         //for each change in the shape
         for (int k = 0; k < s.changes.size(); k++) {
           //write that there's a motion belonging to this shape...
-          textString.append("motion " + s.name);
+          out.append("motion " + s.name);
           //...then write each number...
           for (int j : s.changes.get(k)) {
-            textString.append(" " + j);
+            out.append(" " + j);
           }
           //...and then go to a new line when done
-          textString.append("\n");
+          out.append("\n");
         }
       }
     }
