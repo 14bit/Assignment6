@@ -138,9 +138,9 @@ public abstract class Shape {
       throw new IllegalArgumentException(
           "Time 1 can't be less than 0!");
     }
-    if (t1 >= t2) {
+    if (t1 > t2) {
       throw new IllegalArgumentException(
-          "Time 2 cannot be before or the same as Time 1 in a change!");
+          "Time 2 cannot be before Time 1 in a change!");
     }
     //check that the size makes sense
     if (w2 <= 0 || h2 <= 0) {

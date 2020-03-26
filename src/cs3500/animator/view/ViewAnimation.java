@@ -34,7 +34,7 @@ public class ViewAnimation extends JFrame implements ExcellenceView {
     //set up the panel
     this.setLayout(new BorderLayout());
     panel = new ViewPanel(model);
-    panel.setPreferredSize(new Dimension(500, 500));
+    panel.setPreferredSize(new Dimension(canvasInfo[2], canvasInfo[3]));
     this.add(panel, BorderLayout.CENTER);
     this.pack();
 

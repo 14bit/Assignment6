@@ -15,6 +15,9 @@ to a copy of the shapeArrayList that the model stores in order to display its co
 
 - Modified Shapes to check for time properly, as they were making sure time in movements didn't
 overlap at all, rather than making sure movements had shared start and end points.
+
+- Modified and removed some tests to reflect those changes
+
 ------------------
 How our views work:
 
