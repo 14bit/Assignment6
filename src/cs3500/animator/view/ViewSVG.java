@@ -45,44 +45,47 @@ public class ViewSVG implements ExcellenceView {
       //if there are movements
       if (s.changes.size() > 0) {
         //for each change in the shape
-        for (int i = 0; i < s.changes.size(); i++) {
+        for (int i = 0; i < s.changes.size() + 1; i++) {
           //write that there's a motion belonging to this shape...
           if (s instanceof Rectangle) {
+            for (int l = 1; l < 8; l++) {
           out.append("<animate attributeType=\"xml\" begin=\"" s.changes.get(i).get(0) + "ms\" dur=\"" (s.changes.get(i).get(8) - s.changes.get(i).get(0)) + "ms\" attributeName=\"");
-          if (s.changes.get(i).get(1) != s.changes.get(i).get(9)) {
-            out.append("x\" from=\"" + s.changes.get(i).get(1) + "\" to=\"" s.changes.get(i).get(9) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(2) != s.changes.get(i).get(10)) {
-            out.append("y\" from=\"" + s.changes.get(i).get(2) + "\" to=\"" s.changes.get(i).get(10) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(3) != s.changes.get(i).get(11)) {
-            out.append("w\" from=\"" + s.changes.get(i).get(3) + "\" to=\"" s.changes.get(i).get(11) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(4) != s.changes.get(i).get(12)) {
-            out.append("h\" from=\"" + s.changes.get(i).get(4) + "\" to=\"" s.changes.get(i).get(12) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(5) != s.changes.get(i).get(13)) {
-            out.append("r\" from=\"" + s.changes.get(i).get(5) + "\" to=\"" s.changes.get(i).get(13) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(6) != s.changes.get(i).get(14)) {
-            out.append("g\" from=\"" + s.changes.get(i).get(6) + "\" to=\"" s.changes.get(i).get(14) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(7) != s.changes.get(i).get(15)) {
-            out.append("b\" from=\"" + s.changes.get(i).get(7) + "\" to=\"" s.changes.get(i).get(15) + "\" fill=\"freeze\" />" + "\n");
+          if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("x\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("y\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("w\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("h\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("r\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("g\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("b\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
           }
             out.append("</rect>");
+           
           } else if (s instanceof Ellipse) {
             out.append("<animate attributeType=\"xml\" begin=\"" s.changes.get(i).get(0) + "ms\" dur=\"" (s.changes.get(i).get(8) - s.changes.get(i).get(0)) + "ms\" attributeName=\"");
-            if (s.changes.get(i).get(1) != s.changes.get(i).get(9)) {
-            out.append("cx\" from=\"" + s.changes.get(i).get(1) + "\" to=\"" s.changes.get(i).get(9) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(2) != s.changes.get(i).get(10)) {
-            out.append("cy\" from=\"" + s.changes.get(i).get(2) + "\" to=\"" s.changes.get(i).get(10) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(3) != s.changes.get(i).get(11)) {
-            out.append("rx\" from=\"" + (s.changes.get(i).get(3) / 2) + "\" to=\"" (s.changes.get(i).get(11) / 2) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(4) != s.changes.get(i).get(12)) {
-            out.append("ry\" from=\"" + (s.changes.get(i).get(4) / 2) + "\" to=\"" (s.changes.get(i).get(12) / 2) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(5) != s.changes.get(i).get(13)) {
-            out.append("r\" from=\"" + s.changes.get(i).get(5) + "\" to=\"" s.changes.get(i).get(13) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(6) != s.changes.get(i).get(14)) {
-            out.append("g\" from=\"" + s.changes.get(i).get(6) + "\" to=\"" s.changes.get(i).get(14) + "\" fill=\"freeze\" />" + "\n");
-          } else if (s.changes.get(i).get(7) != s.changes.get(i).get(15)) {
-            out.append("b\" from=\"" + s.changes.get(i).get(7) + "\" to=\"" s.changes.get(i).get(15) + "\" fill=\"freeze\" />" + "\n");
+            if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("cx\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("cy\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("rx\" from=\"" + (s.changes.get(i).get(l) / 2) + "\" to=\"" (s.changes.get(i).get(l + 8) / 2) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("ry\" from=\"" + (s.changes.get(i).get(l) / 2) + "\" to=\"" (s.changes.get(i).get(l + 8) / 2) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("r\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("g\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(l) != s.changes.get(i).get(l + 8)) {
+            out.append("b\" from=\"" + s.changes.get(i).get(l) + "\" to=\"" s.changes.get(i).get(l + 8) + "\" fill=\"freeze\" />" + "\n");
           }
             out.append("</ellipse>");
+          }
           }
           out.append("</sva>");
         }
