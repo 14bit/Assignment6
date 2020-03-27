@@ -119,8 +119,10 @@ public class ExcellenceModel implements ExcellenceOperations {
       switch (type) {
         case "rectangle":
           model.addShape(new Rectangle(name));
+          break;
         case "ellipse":
           model.addShape(new Ellipse(name));
+          break;
       }
       return this;
     }

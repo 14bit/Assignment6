@@ -7,8 +7,6 @@ import cs3500.excellence.hw05.ExcellenceOperations;
 import cs3500.excellence.hw05.Shape;
 import cs3500.excellence.hw05.Ellipse;
 import cs3500.excellence.hw05.Rectangle;
-import java.io.File;
-import java.io.IOException;
 import java.io.PrintStream;
 
 /**
@@ -16,28 +14,33 @@ import java.io.PrintStream;
  */
 public class ViewText implements ExcellenceView {
 
+  private final ExcellenceOperations model;
+  int[] canvasInfo;
+
   ViewText(ExcellenceOperations model) {
+    this.model = model;
+    this.canvasInfo = model.getCanvasInfo();
   }
 
   @Override
   public void setTickRate(int rate) {
+    //Unused in the text view
   }
 
   @Override
   public void refresh() {
+    //Unused in the text view
   }
 
   @Override
   public void go(PrintStream out) {
-    out.append("We are writing directly to a file!\n");
-    
-    out.append("canvas" + canvasInfo[0].toString() + canvasInfo[1].toString() + canvasInfo[2].toString() + canvasInfo[3].toString() + "\n");
+    out.append("canvas " + canvasInfo[0] + " " + canvasInfo[1] + " " + canvasInfo[2] + " " + canvasInfo[3] + "\n");
    
     for (Shape s : model.returnShapeList()) {
       if (s instanceof Rectangle) {
-        out.append("shape" + s.name + "rectangle" + "\n");
+        out.append("shape " + s.name + " rectangle" + "\n");
       } else if (s instanceof Ellipse) {
-        out.append("shape" + s.name + "ellipse" + "\n");
+        out.append("shape " + s.name + " ellipse" + "\n");
       }
       //if there are movements
       if (s.changes.size() > 0) {
@@ -54,6 +57,5 @@ public class ViewText implements ExcellenceView {
         }
       }
     }
-    System.exit(0);
   }
 }

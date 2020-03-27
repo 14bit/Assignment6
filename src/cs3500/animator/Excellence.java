@@ -87,6 +87,7 @@ public class Excellence {
 
     //Give the view the output, and set it going! The view takes over from here.
     ourView.go(out);
+    System.exit(0);
   }
 
   /**
