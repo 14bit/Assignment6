@@ -38,22 +38,53 @@ public class ViewSVG implements ExcellenceView {
     //for every shape
     for (Shape s : model.returnShapeList()) {
       if (s instanceof Rectangle) {
-        out.append("<rect id=\"" + s.name + "\" x=\"" + s.x1 + "\" y=\"" + s.y1 + "\" width=\"" + s.w1 + "\" height=\"" + s.h1 + "\" fill=\"rgb(" + s.r1 + "." + s.g1 + "." + s.b1 + ")\" visibility=\"visible\" >" + "\n");
+        out.append("<rect id=\"" + s.name + "\" x=\"" + s.changes.get(0).get(1) + "\" y=\"" + s.changes.get(0).get(2) + "\" width=\"" + s.changes.get(0).get(3) + "\" height=\"" + s.changes.get(0).get(4) + "\" fill=\"rgb(" + s.changes.get(0).get(5) + "." + s.changes.get(0).get(6) + "." + s.changes.get(0).get(7) + ")\" visibility=\"visible\" >" + "\n");
       } else if (s instanceof Ellipse) {
-        out.append("<ellipse id=\"" + s.name + "\" cx=\"" + s.x1 + "\" cy=\"" + s.y1 + "\" rx=\"" + s.w1 + "\" ry=\"" + s.h1 + "\" fill=\"rgb(" + s.r1 + "." + s.g1 + "." + s.b1 + ")\" visibility=\"visible\" >" + "\n");
+        out.append("<ellipse id=\"" + s.name + "\" cx=\"" + s.changes.get(0).get(1) + "\" cy=\"" + s.changes.get(0).get(2) + "\" rx=\"" + (s.changes.get(0).get(3) / 2) + "\" ry=\"" + (s.changes.get(0).get(4) / 2) + "\" fill=\"rgb(" + s.changes.get(0).get(5) + "." + s.changes.get(0).get(6) + "." + s.changes.get(0).get(7) + ")\" visibility=\"visible\" >" + "\n");
       }
       //if there are movements
       if (s.changes.size() > 0) {
         //for each change in the shape
         for (int i = 0; i < s.changes.size(); i++) {
           //write that there's a motion belonging to this shape...
-          out.append("motion " + s.name);
-          //...then write each number...
-          for (int j : s.changes.get(i)) {
-            out.append(" " + j);
+          if (s instanceof Rectangle) {
+          out.append("<animate attributeType=\"xml\" begin=\"" s.changes.get(i).get(0) + "ms\" dur=\"" (s.changes.get(i).get(8) - s.changes.get(i).get(0)) + "ms\" attributeName=\"");
+          if (s.changes.get(i).get(1) != s.changes.get(i).get(9)) {
+            out.append("x\" from=\"" + s.changes.get(i).get(1) + "\" to=\"" s.changes.get(i).get(9) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(2) != s.changes.get(i).get(10)) {
+            out.append("y\" from=\"" + s.changes.get(i).get(2) + "\" to=\"" s.changes.get(i).get(10) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(3) != s.changes.get(i).get(11)) {
+            out.append("w\" from=\"" + s.changes.get(i).get(3) + "\" to=\"" s.changes.get(i).get(11) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(4) != s.changes.get(i).get(12)) {
+            out.append("h\" from=\"" + s.changes.get(i).get(4) + "\" to=\"" s.changes.get(i).get(12) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(5) != s.changes.get(i).get(13)) {
+            out.append("r\" from=\"" + s.changes.get(i).get(5) + "\" to=\"" s.changes.get(i).get(13) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(6) != s.changes.get(i).get(14)) {
+            out.append("g\" from=\"" + s.changes.get(i).get(6) + "\" to=\"" s.changes.get(i).get(14) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(7) != s.changes.get(i).get(15)) {
+            out.append("b\" from=\"" + s.changes.get(i).get(7) + "\" to=\"" s.changes.get(i).get(15) + "\" fill=\"freeze\" />" + "\n");
           }
-          //...and then go to a new line when done
-          out.append("\n");
+            out.append("</rect>");
+          } else if (s instanceof Ellipse) {
+            out.append("<animate attributeType=\"xml\" begin=\"" s.changes.get(i).get(0) + "ms\" dur=\"" (s.changes.get(i).get(8) - s.changes.get(i).get(0)) + "ms\" attributeName=\"");
+            if (s.changes.get(i).get(1) != s.changes.get(i).get(9)) {
+            out.append("cx\" from=\"" + s.changes.get(i).get(1) + "\" to=\"" s.changes.get(i).get(9) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(2) != s.changes.get(i).get(10)) {
+            out.append("cy\" from=\"" + s.changes.get(i).get(2) + "\" to=\"" s.changes.get(i).get(10) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(3) != s.changes.get(i).get(11)) {
+            out.append("rx\" from=\"" + (s.changes.get(i).get(3) / 2) + "\" to=\"" (s.changes.get(i).get(11) / 2) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(4) != s.changes.get(i).get(12)) {
+            out.append("ry\" from=\"" + (s.changes.get(i).get(4) / 2) + "\" to=\"" (s.changes.get(i).get(12) / 2) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(5) != s.changes.get(i).get(13)) {
+            out.append("r\" from=\"" + s.changes.get(i).get(5) + "\" to=\"" s.changes.get(i).get(13) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(6) != s.changes.get(i).get(14)) {
+            out.append("g\" from=\"" + s.changes.get(i).get(6) + "\" to=\"" s.changes.get(i).get(14) + "\" fill=\"freeze\" />" + "\n");
+          } else if (s.changes.get(i).get(7) != s.changes.get(i).get(15)) {
+            out.append("b\" from=\"" + s.changes.get(i).get(7) + "\" to=\"" s.changes.get(i).get(15) + "\" fill=\"freeze\" />" + "\n");
+          }
+            out.append("</ellipse>");
+          }
+          out.append("</sva>");
         }
       }
     }
